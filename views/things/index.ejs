@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body class="container-fluid">
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main>
+    <div class=things>
+      <h3>Things:</h3>
+      <% todos.forEach(function(todo) { %>
+        <h4>
+        <div class="button-container">
+
+           <form method="POST" action="/shop/<%= todo._id %>?_method=DELETE">
+               <a href="/shop/<%= todo._id %>"><%= todo.title %>
+             <p>Price: <%= todo.price %></p></a>
+             <div>
+                   <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+               </div>
+
+        </form>
+
+
+
+            <form method="POST" action="/shop/<%= todo._id %>">
+      <div>
+            <button onclick="bankin(event)"  type="submit" class="sold">Sell</button>
+            <script>
+             function bankin(event){
+    var r = confirm("do you want to sell item and add$"+<%= todo.price %>+" to the bank?");
+if (r==false){
+  event.preventDefault();
+}
+};
+</script>
+       </div>
+            </form>
+</div>
+
+        </h4>
+      <% }) %>
+    </div>
+    <a href="/shop/new" class="btn btn-primary" id="new">New</a>
+<div class="bankButt">
+  $<%= bank.toFixed(2) %><br>
+  MyBank
+</div>
+  </main>
+
+
+<!--
+  <footer>
+    <% include ../partials/footer %>
+  </footer>-->
+</body>
+</html>

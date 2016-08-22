@@ -1,0 +1,73 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*background-image: url("headPic.jpg");*/
+  background-color: salmon;
+  color: #fff;
+  border: 5px solid #777;
+  margin: 2em auto;
+  padding: 2em;
+  width: 75%;
+
+}
+
+a {
+  color: #00B7FF;
+}
+
+.todo-form {
+  max-width: 400px;
+}
+
+.jumbotron{
+  /*background-image: url("headPic.jpg");*/
+  text-align: center;
+}
+
+.jumbotron h1{
+  color:navy;
+}
+.welcome{
+  text-align: center;
+  color:navy;
+}
+
+
+.button-container form,
+.button-container form div{
+  display:inline;
+  /*width:12%;*/
+}
+.button-container button{
+  display:inline;
+  vertical-align:middle;
+  width:15%;
+}
+
+
+.bankButt{
+ position: relative;
+ top: -140px;
+width:300px;
+height:150px;
+border-radius:40%;
+font-size:45px;
+color:#fff;
+/*line-height:500px;*/
+text-align:center;
+background:#000;
+float:right;
+}
+
+.things{
+  margin-left: 20%;
+}
+
+#new{
+  margin-left: 30%;
+}
+.sold{
+  background-color:green;
+}
+
+
