@@ -18,6 +18,15 @@ a {
 .todo-form {
   max-width: 400px;
 }
+.homeScreen{
+  height:250px;
+  content:url(shop.gif);
+   display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+  /* background-image:url("headPic.jpg") ;*/
+}
 
 .jumbotron{
   /*background-image: url("headPic.jpg");*/
@@ -30,10 +39,10 @@ a {
 .welcome{
   text-align: center;
   color:white;
-  background-image:url("headPic.jpg") ;
 }
 .loginButts{
   text-align: center;
+  margin:15px;
 }
 
 
