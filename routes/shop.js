@@ -25,7 +25,7 @@ router.get('/', authenticate, function(req, res, next) {
   // get all the items and render the index view
  var thing = global.currentUser.items;
  var bank = currentUser.bank;
-  res.render('things/index', { todos: thing, message: req.flash(),
+  res.render('things/index', { stuff: thing, message: req.flash(),
   bank: bank});
 
 });

@@ -2,7 +2,7 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   /*background-image: url("headPic.jpg");*/
-  background-color: salmon;
+  background-color: navy;
   color: #fff;
   border: 5px solid #777;
   margin: 2em auto;
@@ -29,7 +29,11 @@ a {
 }
 .welcome{
   text-align: center;
-  color:navy;
+  color:white;
+  background-image:url("headPic.jpg") ;
+}
+.loginButts{
+  text-align: center;
 }
 
 

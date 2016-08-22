@@ -12,13 +12,13 @@
   <main>
     <div class=things>
       <h3>Things:</h3>
-      <% todos.forEach(function(todo) { %>
+      <% stuff.forEach(function(stuff) { %>
         <h4>
         <div class="button-container">
 
-           <form method="POST" action="/shop/<%= todo._id %>?_method=DELETE">
-               <a href="/shop/<%= todo._id %>"><%= todo.title %>
-             <p>Price: <%= todo.price %></p></a>
+           <form method="POST" action="/shop/<%= stuff._id %>?_method=DELETE">
+               <a href="/shop/<%= stuff._id %>"><%= stuff.title %>
+             <p>Price: <%= stuff.price %></p></a>
              <div>
                    <button type="submit" class="btn btn-xs btn-danger">Delete</button>
                </div>
@@ -27,12 +27,12 @@
 
 
 
-            <form method="POST" action="/shop/<%= todo._id %>">
+            <form method="POST" action="/shop/<%= stuff._id %>">
       <div>
             <button onclick="bankin(event)"  type="submit" class="sold">Sell</button>
             <script>
              function bankin(event){
-    var r = confirm("do you want to sell item and add$"+<%= todo.price %>+" to the bank?");
+    var r = confirm("do you want to sell item and add$"+<%= stuff.price %>+" to the bank?");
 if (r==false){
   event.preventDefault();
 }
