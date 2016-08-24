@@ -3,7 +3,20 @@ var Store = require('./models/thingsMod');
 var User = require('./models/user');
 //mongoose.Promise = require('bluebird');
 
-mongoose.connect('mongodb://localhost/things');
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+}
+else {
+  mongoose.connect('mongodb://localhost/things');
+}
+mongoose.connection.on('error', function(err) {
+  console.error('MongoDB connection error: ' + err);
+  process.exit(-1);
+  }
+);
+mongoose.connection.once('open', function() {
+  console.log("Mongoose has connected to MongoDB!");
+});
 
 // our script will not exit until we have disconnected from the db.
 function quit() {
@@ -20,41 +33,3 @@ function handleError(err) {
 
 User.remove({});
 
-console.log('removing old todos...');
-Store.remove({})
-.then(function() {
-  console.log('old todos removed');
-  console.log('creating some new todos...');
-  var groceries  = new Store({ title: 'groceries',    completed: false });
-  var feedTheCat = new Store({ title: 'feed the cat', completed: true  });
-  return Store.create([groceries, feedTheCat]);
-})
-.then(function(savedTodos) {
-  console.log('Just saved', savedTodos.length, 'todos.');
-  return Store.find({});
-})
-.then(function(allTodos) {
-  console.log('Printing all todos:');
-  allTodos.forEach(function(todo) {
-    console.log(todo);
-  });
-  return Store.findOne({title: 'groceries'});
-})
-.then(function(groceries) {
-  groceries.completed = true;
-  return groceries.save();
-})
-.then(function(groceries) {
-  console.log('updated groceries:', groceries);
-  return groceries.remove();
-})
-.then(function(deleted) {
-  return Todo.find({});
-})
-.then(function(allTodos) {
-  console.log('Printing all todos:');
-  allTodos.forEach(function(todo) {
-    console.log(todo);
-  });
-  quit();
-});

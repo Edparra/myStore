@@ -12,9 +12,9 @@
   <main>
     <h3>EDIT</h3>
 
-    <form class="todo-form" action="/shop/<%= todo._id %>?_method=PUT" method="post">
+    <form class="stuff-form" action="/shop/<%= item._id %>?_method=PUT" method="post">
       <% include _form %>
-      <a href="/shop/<%= todo._id %>" class="btn btn-primary">Back</a>
+      <a href="/shop/<%= item._id %>" class="btn btn-primary">Back</a>
       <button type="submit" class="btn btn-success">Save</button>
     </form>
   </main>

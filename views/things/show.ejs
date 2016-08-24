@@ -12,25 +12,18 @@
   <main>
     <div>
       <h3>SHOW</h3>
-      <p><b>Item: </b><%= todo.title %></p>
-      <p><b>Price: </b><%= todo.price %></p>
-      <p><b>ID: </b><%= todo._id %></p>
+      <p><b>Item: </b><%= item.title %></p>
+      <p><b>Price: </b><%= item.price %></p>
+      <p><b>ID: </b><%= item._id %></p>
 
 
-  <!--    <p><b>Completed: </b>
-        <% if (todo.completed) { %>
-            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-        <% } else { %>
-          <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
-        <% } %>
-      </p>-->
 
-      <p><b>Created: </b><%= todo.getCreatedAt() %></p>
-      <p><b>Last Updated: </b><%= todo.getUpdatedAt() %></p>
+      <p><b>Created: </b><%= item.getCreatedAt() %></p>
+      <p><b>Last Updated: </b><%= item.getUpdatedAt() %></p>
     </div>
 
     <a href="/shop" class="btn btn-primary">Back</a>
-    <a href="/shop/<%= todo._id %>/edit" class="btn btn-danger">Edit</a>
+    <a href="/shop/<%= item._id %>/edit" class="btn btn-danger">Edit</a>
   </main>
 
   <footer>

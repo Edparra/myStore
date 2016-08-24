@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
-var Store = require('./thingsMod');  //changed from todos
+var Store = require('./thingsMod');
 
 var User = new mongoose.Schema({
   local : {

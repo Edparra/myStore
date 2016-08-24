@@ -32,14 +32,14 @@ router.get('/', authenticate, function(req, res, next) {
 
 // NEW
 router.get('/new', function(req, res, next) {
-  res.render('things/new');//, { todo: todo } );
+  res.render('things/new');
 });
 
 // SHOW
 router.get('/:id', function(req, res, next) {
   var item = currentUser.items.id(req.params.id);
   if (!item) return next(makeError(res, 'Document not found', 404));
-  res.render('things/show', { todo: item, message: req.flash() } );
+  res.render('things/show', { item: item, message: req.flash() } );
 
 });
 
@@ -62,7 +62,7 @@ router.post('/', authenticate, function(req, res, next) {
 router.get('/:id/edit', authenticate, function(req, res, next) {
   var change1 = currentUser.items.id(req.params.id);
   if (!change1) return next(makeError(res, 'Document not found', 404));
-  res.render('things/edit', { todo: change1, message: req.flash() } );
+  res.render('things/edit', { item: change1, message: req.flash() } );
 });
 
 // UPDATE
@@ -71,7 +71,7 @@ router.put('/:id', authenticate, function(req, res, next) {
   if (!upDate) return next(makeError(res, 'Document not found', 404));
   else {
     upDate.title = req.body.title;
-   // todo.completed = req.body.completed ? true : false;
+    upDate.price = req.body.price;
     currentUser.save()
     .then(function(saved) {
       res.redirect('/shop');
@@ -112,6 +112,10 @@ router.post('/:id', authenticate, function(req, res, next){
   });
 });
 
+
+//Cash Out
+//router.post('/:id', authenticate, function(req,res,next){
+//})
 
 
 
