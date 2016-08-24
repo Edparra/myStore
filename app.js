@@ -46,7 +46,10 @@ app.use(cookieParser());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+app.use(session({secret: '{secret}',
+                name: 'session_id',
+                saveUninitialized: true,
+                resave: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
