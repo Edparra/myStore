@@ -46,7 +46,7 @@ app.use(cookieParser());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({ secret: 'WDI Rocks!' }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());

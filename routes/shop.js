@@ -83,7 +83,7 @@ router.put('/:id', authenticate, function(req, res, next) {
 
 
 
-// DESTROY
+// Delete
 router.delete('/:id', authenticate, function(req, res, next) {
   var destroy = currentUser.items.id(req.params.id);
   if (!destroy) return next(makeError(res, 'Document not found', 404));
