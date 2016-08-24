@@ -3,6 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   /*background-image: url("headPic.jpg");*/
   background-color: navy;
+  background-image: url('wood.jpg');
   color: #fff;
   border: 5px solid #777;
   margin: 2em auto;
