@@ -17,10 +17,11 @@
         <div class="button-container">
 
   <form method="POST" action="/shop/<%= stuff._id %>?_method=DELETE">
+             <img class="itemPic" src="<%= stuff.pic %>"><br>
       <a href="/shop/<%= stuff._id %>"><%= stuff.title %>
-             <p>Price: <%= stuff.price %></p></a>
+             <p>Price: <%= stuff.price %></p></a><br>
            <div>
-              <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+              <button type="submit" class="btn btn-danger">Delete</button>
            </div>
   </form>
 
@@ -28,10 +29,10 @@
 
   <form method="POST" action="/shop/<%= stuff._id %>">
       <div>
-        <button onclick="bankin(event)"  type="submit" class="sold">Sell</button>
+        <button onclick="bankin_<%= stuff._id %>(event)"  type="submit" class="btn btn-success">Sell</button>
   <script>
-      function bankin(event){
-    var r = confirm("do you want to sell item and add$"+<%= stuff.price %>+" to the bank?");
+      function bankin_<%= stuff._id %>(event){
+    var r = confirm("Do you want to sell item and add$"+<%= stuff.price %>+" to the bank?");
       if (r==false){
          event.preventDefault();
 }
@@ -40,16 +41,29 @@
        </div>
             </form>
 </div>
-
-
         </h4>
       <% }) %>
+
     </div>
     <a href="/shop/new" class="btn btn-primary" id="new">New</a>
+<div class =  'bankContain'>
 <div class="bankButt">
   $<%= bank.toFixed(2) %><br>
   MyBank
 </div>
+<form method="POST" action="/shop/cashout/?_method=PUT">
+<button onclick="cashout(event)" class="btn btn-info" type="submit"> Cash Out </button>
+<script>
+function cashout(event){
+  var c = confirm("Do you want to cash out and set bank to $0?");
+  if (c==false){
+    event.preventDefault();
+  }
+};
+</script>
+</form>
+</div>
+
   </main>
 
 

@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 
 var StoreSchema = new mongoose.Schema({
   title:         { type: String,  required: true },
-  price:     { type: Number, required: true }
+  price:     { type: Number, required: true },
+  pic: {   type:String   }
   },
   { timestamps: true }  // createdAt, updatedAt
 );

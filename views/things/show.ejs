@@ -9,12 +9,14 @@
     <% include ../partials/header %>
   </header>
 
-  <main>
+  <main style="text-align: center;">
     <div>
       <h3>SHOW</h3>
       <p><b>Item: </b><%= item.title %></p>
-      <p><b>Price: </b><%= item.price %></p>
-      <p><b>ID: </b><%= item._id %></p>
+      <p><b>Price: </b><%= item.price %></p> <br>
+      <img class='itemPic' src='<%= item.pic %>'>
+
+
 
 
 

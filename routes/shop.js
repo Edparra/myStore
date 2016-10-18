@@ -48,6 +48,7 @@ router.post('/', authenticate, function(req, res, next) {
   var make1 = {
     title: req.body.title,
     price: req.body.price,
+    pic: req.body.pic,
  };
 
   currentUser.items.push(make1);
@@ -65,6 +66,17 @@ router.get('/:id/edit', authenticate, function(req, res, next) {
   res.render('things/edit', { item: change1, message: req.flash() } );
 });
 
+//Cash Out
+router.put('/cashout', authenticate, function(req,res,next){
+currentUser.bank = 0;
+currentUser.save()
+.then(function(){
+  res.redirect('/shop');
+}, function(err){
+  return next(err);
+});
+});
+
 // UPDATE
 router.put('/:id', authenticate, function(req, res, next) {
   var upDate = currentUser.items.id(req.params.id);
@@ -72,6 +84,7 @@ router.put('/:id', authenticate, function(req, res, next) {
   else {
     upDate.title = req.body.title;
     upDate.price = req.body.price;
+    upDate.pic = req.body.pic;
     currentUser.save()
     .then(function(saved) {
       res.redirect('/shop');
@@ -113,9 +126,6 @@ router.post('/:id', authenticate, function(req, res, next){
 });
 
 
-//Cash Out
-//router.post('/:id', authenticate, function(req,res,next){
-//})
 
 
 

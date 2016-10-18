@@ -60,17 +60,34 @@ a {
 
 
 .bankButt{
- position: relative;
- top: -140px;
+
 width:300px;
 height:150px;
-border-radius:40%;
+border-radius:50%;
 font-size:45px;
 color:#fff;
 /*line-height:500px;*/
+display:flex;
+justify-content: center;
+align-items: center;
 text-align:center;
 background:#000;
-float:right;
+}
+.bankContain{
+  position: relative;
+ top: -140px;
+  float:right;
+}
+.bankContain button{
+  margin-left: 120px;
+  margin-top: 4px;
+}
+.button-container p{
+  display: inline-block;
+}
+.itemPic{
+  width: 20%;
+  height: auto;
 }
 
 .things{
@@ -80,8 +97,6 @@ float:right;
 #new{
   margin-left: 30%;
 }
-.sold{
-  background-color:green;
-}
+
 
 
