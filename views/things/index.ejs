@@ -18,7 +18,7 @@
 
   <form method="POST" action="/shop/<%= stuff._id %>?_method=DELETE">
              <img class="itemPic" src="<%= stuff.pic %>"><br>
-      <a href="/shop/<%= stuff._id %>"><%= stuff.title %>
+      <a href="/shop/<%= stuff._id %>"><%= stuff.title %><br>
              <p>Price: <%= stuff.price %></p></a><br>
            <div>
               <button type="submit" class="btn btn-danger">Delete</button>
