@@ -12,7 +12,7 @@ function makeError(res, message, status) {
 
 function authenticate(req, res, next) {
   if(!req.isAuthenticated()) {
-    req.flash('error', 'hell Na')
+    req.flash('error', 'Please sign in first')
     res.redirect('/');
   }
   else {
