@@ -15,13 +15,23 @@
       <% stuff.forEach(function(stuff) { %>
         <h4>
         <div class="button-container">
+            <img class="itemPic" src="<%= stuff.pic %>"><br>
+            <a href="/shop/<%= stuff._id %>"><%= stuff.title %><br>
+                <p>Price: <%= stuff.price %></p></a><br>
 
   <form method="POST" action="/shop/<%= stuff._id %>?_method=DELETE">
-             <img class="itemPic" src="<%= stuff.pic %>"><br>
-      <a href="/shop/<%= stuff._id %>"><%= stuff.title %><br>
-             <p>Price: <%= stuff.price %></p></a><br>
+
            <div>
-              <button type="submit" class="btn btn-danger">Delete</button>
+              <button onclick="deleteConfirm_<%= stuff._id %>(event)" class="btn btn-danger">Delete</button>
+               <script>
+                   function deleteConfirm_<%= stuff._id %>(event){
+                      console.log('I ran!');
+                       var y = confirm("Are you sure you want to delete <%= stuff.title %>  from your store?");
+                            if (y == false){
+                                event.preventDefault();
+                            }
+                   };
+               </script>
            </div>
   </form>
 
@@ -32,7 +42,7 @@
         <button onclick="bankin_<%= stuff._id %>(event)"  type="submit" class="btn btn-success">Sell</button>
   <script>
       function bankin_<%= stuff._id %>(event){
-    var r = confirm("Do you want to sell item and add$"+<%= stuff.price %>+" to the bank?");
+    var r = confirm("Do you want to sell item and add$" + <%= stuff.price %> + " to the bank?");
       if (r==false){
          event.preventDefault();
 }

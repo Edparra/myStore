@@ -12,7 +12,7 @@ function makeError(res, message, status) {
 
 function authenticate(req, res, next) {
   if(!req.isAuthenticated()) {
-    req.flash('error', 'Please sign in first')
+    req.flash('error', 'Please sign in first');
     res.redirect('/');
   }
   else {
@@ -48,7 +48,7 @@ router.post('/', authenticate, function(req, res, next) {
   var make1 = {
     title: req.body.title,
     price: req.body.price,
-    pic: req.body.pic,
+    pic: req.body.pic
  };
 
   currentUser.items.push(make1);
