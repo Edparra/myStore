@@ -37,6 +37,7 @@
 
 
 
+
   <form method="POST" action="/shop/<%= stuff._id %>">
       <div>
         <button onclick="bankin_<%= stuff._id %>(event)"  type="submit" class="btn btn-success">Sell</button>
@@ -56,6 +57,7 @@
 
     </div>
     <a href="/shop/new" class="btn btn-primary" id="new">New</a>
+
 <div class =  'bankContain'>
 <div class="bankButt">
   $<%= bank.toFixed(2) %><br>

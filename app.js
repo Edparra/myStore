@@ -45,7 +45,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
-
+//Used to encrypt our session ids
 app.use(session({secret: '{secret}',
                 name: 'session_id',
                 saveUninitialized: true,
@@ -55,6 +55,8 @@ app.use(passport.session());
 app.use(flash());
 //configure passport with out custome configuration code
 require('./config/passport/passport')(passport);
+
+
 
 // This middleware will allow us to use the currentUser in our views and routes.
 app.use(function (req, res, next) {

@@ -31,6 +31,7 @@ router.get('/login', function(req, res, next) {
 
 // POST /login
 router.post('/login', function(req, res, next) {
+  console.log('THis is console loggin');
   var loginProperty = passport.authenticate('local-login', {
     successRedirect : '/shop',
     failureRedirect : '/login',
